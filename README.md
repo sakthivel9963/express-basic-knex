@@ -19,3 +19,9 @@ knex migrate run
 ```sh
 npx knex migrate:latest
 ```
+
+knex migrate rollback
+
+```sh
+npx knex migrate:rollback
+```

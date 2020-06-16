@@ -2,6 +2,14 @@ const Knex = require('knex');
 
 const tablenames = require('../../src/constants/tablenames');
 
+function addDefaultColumn(table) {
+  table.timestamps(false, true);
+  table.integer('created_by');
+  table.integer('updated_by');
+  table.integer('deleted_by');
+  table.datetime('deleted_at');
+}
+
 /**
  * @param {Knex} knex
  */
@@ -11,10 +19,12 @@ exports.up = async (knex) => {
     table.string('email', 254).notNullable().unique();
     table.string('name', 254).notNullable().unique();
     table.string('password', 254).notNullable().unique();
-    table.dateTime('last_login');
+    addDefaultColumn(table);
   });
 };
 
 exports.down = async (knex) => {
-  await knex.schema.dropTable(tablenames.user);
+  await Promise.all(
+    [tablenames.user].map((tablename) => knex.schema.dropTable(tablename))
+  );
 };
