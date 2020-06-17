@@ -1,4 +1,4 @@
-const logger = require('./winston');
+const logger = require('../config/winston');
 
 function notFound(req, res, next) {
   const error = new Error(`Not Found - ${req.originalUrl}`);

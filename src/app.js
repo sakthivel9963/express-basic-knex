@@ -7,7 +7,7 @@ const favicon = require('serve-favicon');
 const router = require('./router');
 const { notFound, errorHandler } = require('./middleware/utils');
 require('dotenv').config();
-const winston = require('./middleware/winston');
+const winston = require('./config/winston');
 
 const app = express();
 

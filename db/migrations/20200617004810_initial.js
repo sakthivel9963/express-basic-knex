@@ -1,6 +1,6 @@
 const Knex = require('knex');
 
-const tablenames = require('../../src/constants/tablenames');
+const tablenames = require('../../src/constants/tableNames');
 
 function addDefaultColumn(table) {
   table.timestamps(false, true);

@@ -1,9 +1,13 @@
+const tableName = require('../../constants/tableNames');
+const ExampleQueries = require('./example.queries');
+
 class ExampleController {
-  static async save(req, res, next) {
+  static async get(req, res, next) {
     try {
+      const result = await ExampleQueries.find(tableName.user);
       res.json({
         status: 200,
-        message: 'success',
+        message: result,
       });
     } catch (error) {
       next(error);
