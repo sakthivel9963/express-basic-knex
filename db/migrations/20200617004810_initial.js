@@ -23,6 +23,9 @@ exports.up = async (knex) => {
   });
 };
 
+/**
+ * @param {Knex} knex
+ */
 exports.down = async (knex) => {
   await Promise.all(
     [tablenames.user].map((tablename) => knex.schema.dropTable(tablename))

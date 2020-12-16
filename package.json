@@ -8,8 +8,9 @@
     "dev": "nodemon ./src/index.js",
     "lint": "eslint ./src/**",
     "lint:fix": "eslint ./src/** --fix",
-    "migrate": "npx knex migrate:latest",
-    "rollback": "npx knex migrate:rollback"
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
   },
   "repository": {
     "type": "git",
